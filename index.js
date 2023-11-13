@@ -10,4 +10,4 @@ io.on('connection', (socket) => {
   console.log('Connected client');
 });
 
-server.listen(3002);
+server.listen(8080);
