@@ -1,0 +1,16 @@
+{
+  "name": "boggle-project-opp-backend",
+  "version": "1.0.0",
+  "description": "Boggle Server",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Anfelesan",
+  "license": "ISC",
+  "dependencies": {
+    "socket.io": "^4.7.2"
+  }
+}
