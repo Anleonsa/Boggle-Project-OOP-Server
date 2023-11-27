@@ -17,6 +17,10 @@ io.on('connection', (socket) => {
 
   io.emit('data-games', games);
 
+  socket.on('sync-data-games', data => {
+    io.emit('data-games', games);
+  })
+
   //Listener to create a game
   socket.on('create-game', data => {
     const game = new Game(data.game);
@@ -41,8 +45,15 @@ io.on('connection', (socket) => {
     io.emit(`game-${data.room}`, games[data.room]);
   })
 
+  //Listener to sync game (at a room)
   socket.on('sync-game', data => {
     io.emit(`game-${data.room}`, games[data.room]);
+  })
+
+  //Listener to start a game
+  socket.on('start-game', room => {
+    games[room].start();
+    io.emit(`game-${room}`, games[room]);
   })
 
 });
